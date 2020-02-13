@@ -26,6 +26,7 @@ import javax.persistence.Id;
  */
 // tag::code[]
 @Entity
+//JPA annotation that denotes the whole class for storage in a relational table
 public class Employee {
 
 	private @Id @GeneratedValue Long id;

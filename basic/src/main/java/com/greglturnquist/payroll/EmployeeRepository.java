@@ -22,6 +22,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 // tag::code[]
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-
+    // extends Spring Data Commons' CrudRepository and plugs in the type of the domain object and its primary key
 }
 // end::code[]

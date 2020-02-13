@@ -26,9 +26,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 
 	@RequestMapping(value = "/")
+	//flags the index() method to support the / route.
 	public String index() {
 		return "index";
 	}
+	//returns index as the name of the template, which Spring Boot’s autoconfigured view resolver will map to src/main/resources/templates/index.html
 
 }
 // end::code[]

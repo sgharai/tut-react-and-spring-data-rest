@@ -4,6 +4,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
+//custom code that configures rest.js to include support for HAL, URI Templates, and other things. It also sets the default Accept request header to application/hal+json.
 // end::vars[]
 
 // tag::app[]
@@ -18,6 +19,7 @@ class App extends React.Component {
 		client({method: 'GET', path: '/api/employees'}).done(response => {
 			this.setState({employees: response.entity._embedded.employees});
 		});
+		//function loads data via client, a Promise compliant instance of rest.js. When it is done retrieving from /api/employees, it then invokes the function inside done() and sets the state based on its HAL document (response.entity._embedded.employees). You might remember the structure of curl /api/employees earlier and see how it maps onto this structure.
 	}
 
 	render() {

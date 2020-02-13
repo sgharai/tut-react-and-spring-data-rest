@@ -24,17 +24,20 @@ import org.springframework.stereotype.Component;
  */
 // tag::code[]
 @Component
+// marked with Spring’s @Component annotation so that it is automatically picked up by @SpringBootApplication
 public class DatabaseLoader implements CommandLineRunner {
-
+	//implements Spring Boot’s CommandLineRunner so that it gets run after all the beans are created and registered.
 	private final EmployeeRepository repository;
 
 	@Autowired
 	public DatabaseLoader(EmployeeRepository repository) {
 		this.repository = repository;
 	}
+	// uses constructor injection and autowiring to get Spring Data’s automatically created EmployeeRepository
 
 	@Override
 	public void run(String... strings) throws Exception {
+		//varargs--zero or more String objects (or an array of them) may be passed as the argument(s)
 		this.repository.save(new Employee("Frodo", "Baggins", "ring bearer"));
 	}
 }
